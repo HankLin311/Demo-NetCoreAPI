@@ -15,7 +15,7 @@
 
 - 概念圖
     
-    
+    ![image](https://github.com/HankLin311/Demo-NetCoreAPI/blob/main/image.png)
     
 - WebApi
     - Infrastructure (API基礎實作)
@@ -24,7 +24,7 @@
     - Controller (控制流程)
 - Service
     - Implements (流程細節實作)
-    - Dtos (WebApi層和Service層傳值的物件)
+    - Dtos (Controller層和Service層傳值的物件)
 - Repository
     - Datas (Context物件)
     - DemoDb (包含Demo資料庫的Entities物件、DB實作)
