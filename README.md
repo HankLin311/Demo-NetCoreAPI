@@ -15,7 +15,7 @@
 
 - 概念圖
     
-    ![image.png](https://github.com/HankLin311/NetCoreWebApiDemo/blob/main/image.png?raw=true)
+    
     
 - WebApi
     - Infrastructure (API基礎實作)
