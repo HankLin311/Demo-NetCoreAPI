@@ -9,7 +9,7 @@ using Demo.Services.Implements;
 using Demo.WebApi.Infrastructure.ApiResponse;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using System.Reflection;
 using Microsoft.Extensions.Options;
 
@@ -124,20 +124,13 @@ namespace Demo.WebApi.Infrastructure.Extesions
                 });
 
                 // 幫忙將請求加上 Authorization
-                swaggerGenOptions.AddSecurityRequirement(new OpenApiSecurityRequirement
+                swaggerGenOptions.AddSecurityRequirement(x => new OpenApiSecurityRequirement
+                {
                     {
-                        {
-                            new OpenApiSecurityScheme
-                            {
-                                Reference = new OpenApiReference
-                                {
-                                    Id = "Bearer",
-                                    Type = ReferenceType.SecurityScheme
-                                }
-                            },
-                            new List<string>(){}
-                        }
-                    });
+                        new OpenApiSecuritySchemeReference("Bearer"),  // ← 直接傳 Id
+                        new List<string>()
+                    }
+                });
 
                 // 讀取 XML 檔案產生 API 說明
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
